@@ -33,3 +33,19 @@ artifacts:
     name: Daedalus Win64 Installer
   - path: node_modules\daedalus-client-api\build-id
     name: cardano-sl-build-id
+
+deploy:
+  provider: S3
+  access_key_id:
+    secure: gExbu9JE+yzLdqhjKeZDC9kP8XyFhdVfo2Uaacnhe04=
+  secret_access_key:
+    secure: ILqyRuq76HAze5Yg+aD5aiyxgV4jSRtbMopV0GDMAx+2AveakN2LZmheCQmRPFuU
+  bucket: daedalus-public-installers
+  region: ap-northeast-1
+  folder:
+  artifact: Daedalus Win64 Installer
+  set_public: false
+  on:
+    branch:
+      - master
+      - devops-653-appveyor-installers-s3
